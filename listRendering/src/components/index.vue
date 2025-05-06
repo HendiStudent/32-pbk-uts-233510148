@@ -2,7 +2,7 @@
   <h1>{{ h1 }}</h1>
   <form @submit.prevent="addTodo">
     <input v-model="newTodo" required placeholder="New todo" type="text" />
-    <button>Add Todo</button>
+    <button>Tambah Tugas</button>
   </form>
 
   <ul>
@@ -15,9 +15,14 @@
 
   <div class="icon">
     <button @click="hideCompleted = !hideCompleted">
-      {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+      {{ hideCompleted ? 'Tampilkan semua' : 'Tampilkan selesai' }}
     </button>
   </div>
+
+  <footer>
+  &copy; 2025 My Todo List. @Hendi Syaputra.
+</footer>
+
 </template>
 
 <script setup>
@@ -48,9 +53,6 @@ onMounted(() => {
   }
 })
 
-
-// Menggunakan watch untuk mendeteksi perubahan pada todos
-// dan menyimpan ke localStorage
 watch(todos, saveTodos, { deep: true })
 
 function saveTodos() {
@@ -75,9 +77,9 @@ function removeTodo(todo) {
 </script>
 
 <style>
-
 .done {
   text-decoration: line-through;
   color: #888;
 }
 </style>
+
